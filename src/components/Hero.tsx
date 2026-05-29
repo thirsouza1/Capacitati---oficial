@@ -145,12 +145,12 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
 
               {/* Center content - Academic excellence emblem */}
               <div className="my-auto py-6 space-y-4 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-2xl bg-slate-900/80 border border-success-gold/30 flex items-center justify-center shadow-2xl mb-2 relative p-2 overflow-hidden">
+                <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl bg-slate-900/90 border border-success-gold/40 flex items-center justify-center shadow-2xl mb-2 relative p-1.5 overflow-hidden">
                   <img
                     src="https://lh3.googleusercontent.com/d/1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
                     alt="Capaci-Tati Premium"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(212,175,55,0.2)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(212,175,55,0.25)] scale-105"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
@@ -167,10 +167,10 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
               <div className="flex items-center justify-between border-t border-white/5 pt-4">
                 <div className="flex items-center gap-1.5 text-xs text-slate-300">
                   <Users className="w-4 h-4 text-intellect-blue" />
-                  <span>Paraíso, MG</span>
+                  <span>São Sebastião do Paraíso, Minas Gerais</span>
                 </div>
                 <div className="text-xs text-success-gold font-mono font-medium tracking-wider">
-                  N° Registro INPI
+                  Marca Registrada
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, type: "spring" }}
-            className="absolute bottom-6 left-4 sm:left-6 md:-left-10 bg-slate-900/90 border border-white/10 backdrop-blur-md rounded-xl p-4 shadow-2xl space-y-2 max-w-[200px]"
+            className="hidden md:block absolute bottom-6 md:-left-10 bg-slate-900/90 border border-white/10 backdrop-blur-md rounded-xl p-4 shadow-2xl space-y-2 max-w-[200px]"
           >
             <div className="flex items-center gap-2">
               <span className="p-1 rounded bg-emerald-500/10 text-emerald-400">
