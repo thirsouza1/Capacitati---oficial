@@ -1,0 +1,6 @@
+{
+  "name": "Capaci-Tati",
+  "description": "Escola de Reforço e Aprimoramento Escolar Premium em São Sebastião do Paraíso - MG. Metodologia personalizada para crianças, adolescentes e preparatório para concursos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

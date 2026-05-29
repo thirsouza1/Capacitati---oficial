@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --color-primary-navy: #0F172A;
+  --color-success-gold: #D4AF37;
+  --color-intellect-blue: #2563EB;
+  --color-clean-slate: #F8FAFC;
+}
+
+/* Custom glint animation */
+@keyframes glint {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-glint {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.1) 0%,
+    rgba(212, 175, 55, 0.8) 50%,
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  background-size: 200% auto;
+  animation: glint 3s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
