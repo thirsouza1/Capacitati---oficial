@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Award } from "lucide-react";
+import GoogleDriveImage from "./GoogleDriveImage";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -45,15 +46,10 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             className="flex flex-col items-center text-center space-y-4"
           >
             <div className="p-3 rounded-2xl bg-slate-900 border border-success-gold/30 shadow-2xl relative overflow-hidden group flex items-center justify-center w-28 h-28">
-              <img
-                src="https://lh3.googleusercontent.com/d/1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
+              <GoogleDriveImage
+                driveId="1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
                 alt="Capaci-Tati Logo"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-contain filter drop-shadow-[0_4px_10px_rgba(212,175,55,0.3)]"
-                onError={(e) => {
-                  // Fallback in case of networking restrictions during pre-load
-                  e.currentTarget.style.display = 'none';
-                }}
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_10px_rgba(112,163,102,0.3)]"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </div>

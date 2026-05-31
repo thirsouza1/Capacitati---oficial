@@ -6,7 +6,7 @@
   --font-sans: "Inter", sans-serif;
   --font-display: "Montserrat", sans-serif;
   --color-primary-navy: #0F172A;
-  --color-success-gold: #D4AF37;
+  --color-success-gold: #70A366;
   --color-intellect-blue: #2563EB;
   --color-clean-slate: #F8FAFC;
 }
@@ -24,9 +24,9 @@
 .animate-glint {
   background: linear-gradient(
     90deg,
-    rgba(212, 175, 55, 0.1) 0%,
-    rgba(212, 175, 55, 0.8) 50%,
-    rgba(212, 175, 55, 0.1) 100%
+    rgba(112, 163, 102, 0.1) 0%,
+    rgba(112, 163, 102, 0.8) 50%,
+    rgba(112, 163, 102, 0.1) 100%
   );
   background-size: 200% auto;
   animation: glint 3s infinite linear;

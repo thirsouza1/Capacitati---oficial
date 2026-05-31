@@ -62,7 +62,7 @@ export default function FooterConversao() {
                 <Clock className="w-5 h-5 text-success-gold shrink-0" />
                 <div className="text-sm">
                   <p className="font-bold text-white inline mr-1">Atendimento:</p>
-                  <span>Segunda a Sexta, das 08:00 às 18:00</span>
+                  <span>Segunda a Sexta, das 09:00 às 20:00</span>
                 </div>
               </div>
             </div>

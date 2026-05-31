@@ -10,12 +10,51 @@ interface LeadModalProps {
 export default function LeadModal({ isOpen, onClose }: LeadModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [segment, setSegment] = useState("kids");
   const [submitted, setSubmitted] = useState(false);
+
+  const formatPhone = (value: string) => {
+    const cleanValue = value.replace(/\D/g, "");
+    const limitedValue = cleanValue.substring(0, 11);
+    
+    if (limitedValue.length === 0) {
+      return "";
+    } else if (limitedValue.length <= 2) {
+      return `(${limitedValue}`;
+    } else if (limitedValue.length <= 6) {
+      return `(${limitedValue.substring(0, 2)}) ${limitedValue.substring(2)}`;
+    } else if (limitedValue.length <= 10) {
+      return `(${limitedValue.substring(0, 2)}) ${limitedValue.substring(2, 6)}-${limitedValue.substring(6)}`;
+    } else {
+      return `(${limitedValue.substring(0, 2)}) ${limitedValue.substring(2, 7)}-${limitedValue.substring(7)}`;
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setPhone(formatted);
+    setPhoneError("");
+  };
+
+  const validatePhone = (value: string) => {
+    const clean = value.replace(/\D/g, "");
+    if (clean.length < 10) {
+      return "Insira um número com DDD válido (mínimo de 10 dígitos).";
+    }
+    return "";
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone) return;
+
+    const error = validatePhone(phone);
+    if (error) {
+      setPhoneError(error);
+      return;
+    }
+    setPhoneError("");
 
     // Simulate elite submission success
     setSubmitted(true);
@@ -24,7 +63,7 @@ export default function LeadModal({ isOpen, onClose }: LeadModalProps) {
     setTimeout(() => {
       const formattedPhone = phone.replace(/\D/g, "");
       const segmentText = segment === "kids" ? "Reforço & Aprimoramento Escolar para meu filho" : "Preparatório Premium para Concursos públicos";
-      const whatsappMsg = `Olá Capaci-Tati! Meu nome é ${name} (${formattedPhone}) e gostaria de agendar uma consulta gratuita sobre o ${segmentText}.`;
+      const whatsappMsg = `Olá Capaci-Tati! Meu nome é ${name} (tel: ${phone}) e gostaria de agendar uma consulta gratuita sobre o ${segmentText}.`;
       const encodedMsg = encodeURIComponent(whatsappMsg);
       window.open(`https://wa.me/5535988330353?text=${encodedMsg}`, "_blank");
       onClose();
@@ -100,10 +139,15 @@ export default function LeadModal({ isOpen, onClose }: LeadModalProps) {
                       type="tel"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={handlePhoneChange}
                       placeholder="Ex: (35) 98833-0353"
-                      className="w-full px-4 py-3 text-sm text-primary-navy placeholder-slate-400 bg-slate-50 border border-slate-200 rounded-xl focus:border-intellect-blue focus:bg-white focus:outline-none transition-colors"
+                      className={`w-full px-4 py-3 text-sm text-primary-navy placeholder-slate-400 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none transition-colors ${
+                        phoneError ? "border-rose-500 focus:border-rose-500" : "border-slate-200 focus:border-intellect-blue"
+                      }`}
                     />
+                    {phoneError && (
+                      <p className="text-xs text-rose-500 font-medium mt-1">{phoneError}</p>
+                    )}
                   </div>
 
                   <div className="space-y-1.5">

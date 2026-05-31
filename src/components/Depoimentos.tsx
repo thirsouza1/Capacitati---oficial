@@ -31,7 +31,7 @@ export default function Depoimentos() {
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/25">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#70A366] bg-[#70A366]/10 px-3.5 py-1.5 rounded-full border border-[#70A366]/25">
             Prova Social
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">

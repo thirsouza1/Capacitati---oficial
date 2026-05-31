@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight, Award } from "lucide-react";
+import GoogleDriveImage from "./GoogleDriveImage";
 
 interface HeaderProps {
   onOpenConsultation: () => void;
+  onOpenTrabalheConosco?: () => void;
 }
 
-export default function Header({ onOpenConsultation }: HeaderProps) {
+export default function Header({ onOpenConsultation, onOpenTrabalheConosco }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuItems = [
     { label: "Cursos", href: "#cursos" },
     { label: "Metodologia", href: "#metodologia" },
     { label: "Galeria", href: "#galeria" },
-    { label: "Resultados", href: "#depoimentos" },
+    { label: "Sobre somos", href: "#depoimentos" },
+    { label: "Trabalhe Conosco", onClick: onOpenTrabalheConosco },
   ];
 
   return (
@@ -24,14 +27,10 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="p-1 rounded-lg bg-slate-800 border border-success-gold/35 flex items-center justify-center w-11 h-11 overflow-hidden">
-              <img
-                src="https://lh3.googleusercontent.com/d/1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
+              <GoogleDriveImage
+                driveId="1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
                 alt="Capaci-Tati Logo"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
               />
             </div>
             <div className="flex flex-col">
@@ -47,14 +46,25 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-slate-300 hover:text-success-gold transition-colors relative group py-1"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-success-gold transition-all duration-300 group-hover:w-full" />
-              </a>
+              item.onClick ? (
+                <button
+                  key={item.label}
+                  onClick={item.onClick}
+                  className="text-sm font-medium text-slate-300 hover:text-success-gold transition-colors relative group py-1 cursor-pointer bg-transparent border-none text-left"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-success-gold transition-all duration-300 group-hover:w-full" />
+                </button>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-medium text-slate-300 hover:text-success-gold transition-colors relative group py-1"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-success-gold transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
             ))}
           </nav>
 
@@ -100,17 +110,33 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           >
             <div className="flex flex-col gap-6 mt-4">
               {menuItems.map((item, index) => (
-                <motion.a
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.08 }}
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl font-display font-semibold text-slate-100 hover:text-success-gold transition-colors py-2 border-b border-white/5"
-                >
-                  {item.label}
-                </motion.a>
+                item.onClick ? (
+                  <motion.button
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.08 }}
+                    key={item.label}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      item.onClick?.();
+                    }}
+                    className="text-2xl font-display font-semibold text-slate-100 hover:text-success-gold transition-colors py-2 border-b border-white/5 text-left w-full bg-transparent border-none cursor-pointer"
+                  >
+                    {item.label}
+                  </motion.button>
+                ) : (
+                  <motion.a
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.08 }}
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-2xl font-display font-semibold text-slate-100 hover:text-success-gold transition-colors py-2 border-b border-white/5"
+                  >
+                    {item.label}
+                  </motion.a>
+                )
               ))}
             </div>
 

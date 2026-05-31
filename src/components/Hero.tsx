@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Star, Shield, Users, Trophy } from "lucide-react";
+import GoogleDriveImage from "./GoogleDriveImage";
 
 interface HeroProps {
   onOpenConsultation: () => void;
@@ -15,7 +16,7 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
       
       {/* Background patterns */}
       <div className="absolute inset-0 z-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#70A366_1px,transparent_1px)] [background-size:16px_16px]" />
       </div>
       
       {/* Ambient glowing circles */}
@@ -37,10 +38,9 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
               className="flex items-center gap-2.5 bg-slate-900/85 border border-success-gold/30 px-3.5 py-1.5 rounded-2xl shadow-lg w-fit"
             >
               <div className="w-8 h-8 rounded-lg overflow-hidden bg-slate-950 flex items-center justify-center p-0.5 border border-white/5">
-                <img
-                  src="https://lh3.googleusercontent.com/d/1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
+                <GoogleDriveImage
+                  driveId="1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
                   alt="Logo"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -75,7 +75,7 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-xl">
-              Líder em São Sebastião do Paraíso. Reforço escolar personalizado e o preparatório para concursos que mais aprova na região.
+              Líder em São Sebastião do Paraíso. Reforço escolar personalizado e o preparatório para concursos, ENEM e vestibulares que mais aprova na região.
             </p>
           </div>
 
@@ -132,28 +132,14 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
             
             {/* Fallback pattern visible behind image or if image not found */}
             <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-800 flex flex-col justify-between p-8 text-left">
-              {/* Top part with logo and tagline */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-1 rounded bg-success-gold/10 border border-success-gold/30">
-                    <Trophy className="w-5 h-5 text-success-gold" />
-                  </div>
-                  <span className="font-mono text-xs text-slate-400 tracking-widest uppercase">CAPACI-TATI ESTÚDIO</span>
-                </div>
-                <span className="font-mono text-[10px] bg-white/5 border border-white/10 text-success-gold px-2 py-0.5 rounded tracking-widest">EST. 2018</span>
-              </div>
 
               {/* Center content - Academic excellence emblem */}
               <div className="my-auto py-6 space-y-4 flex flex-col items-center text-center">
                 <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl bg-slate-900/90 border border-success-gold/40 flex items-center justify-center shadow-2xl mb-2 relative p-1.5 overflow-hidden">
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
+                  <GoogleDriveImage
+                    driveId="1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
                     alt="Capaci-Tati Premium"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(212,175,55,0.25)] scale-105"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
+                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(112,163,102,0.25)] scale-105"
                   />
                   <div className="absolute inset-0 rounded-2xl border border-success-gold animate-[ping_2.5s_infinite] opacity-5" />
                 </div>
@@ -189,23 +175,7 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Floating Badge (Glassmorphism card) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, type: "spring" }}
-            className="hidden md:block absolute bottom-6 md:-left-10 bg-slate-900/90 border border-white/10 backdrop-blur-md rounded-xl p-4 shadow-2xl space-y-2 max-w-[200px]"
-          >
-            <div className="flex items-center gap-2">
-              <span className="p-1 rounded bg-emerald-500/10 text-emerald-400">
-                <Trophy className="w-4 h-4" />
-              </span>
-              <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">Metodologia Exclusiva</span>
-            </div>
-            <p className="font-display text-xs font-bold text-white leading-tight">
-              Acompanhamento personalizado dia-a-dia
-            </p>
-          </motion.div>
+
 
         </div>
       </div>
