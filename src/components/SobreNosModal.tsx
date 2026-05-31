@@ -152,9 +152,15 @@ export default function SobreNosModal({ isOpen, onClose, onExploreServices }: So
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                     
-                    <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-slate-900/90 border border-white/15 backdrop-blur-md">
-                      <p className="text-xs font-mono uppercase tracking-wider text-success-gold mb-1">Fundada em São Sebastião do Paraíso</p>
-                      <p className="text-sm font-bold text-white leading-tight">Espaço planejado com amor pedagógico, carinho e responsabilidade.</p>
+                    <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-slate-900/95 border border-white/15 backdrop-blur-md space-y-2.5">
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] font-mono uppercase tracking-wider text-success-gold font-bold">Fundadora e Diretora Pedagógica</p>
+                        <h4 className="font-display font-black text-white text-base tracking-tight">Tatiane de Souza Urias Cassemiro</h4>
+                        <p className="text-[10px] text-slate-400 uppercase tracking-widest font-mono font-medium">Fundadora da CAPACITATI</p>
+                      </div>
+                      <p className="text-xs italic text-slate-300 border-t border-white/5 pt-2 leading-relaxed">
+                        "Transformando vidas por meio da educação desde 2015."
+                      </p>
                     </div>
                   </motion.div>
                 </div>
