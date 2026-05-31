@@ -18,6 +18,7 @@ import LeadModal from "./components/LeadModal";
 import AulasInfoModal from "./components/AulasInfoModal";
 import EspacoKidsModal from "./components/EspacoKidsModal";
 import TrabalheConoscoModal from "./components/TrabalheConoscoModal";
+import SobreNosModal from "./components/SobreNosModal";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
   const [aulasModalOpen, setAulasModalOpen] = useState(false);
   const [kidsModalOpen, setKidsModalOpen] = useState(false);
   const [trabalheConoscoOpen, setTrabalheConoscoOpen] = useState(false);
+  const [sobreNosOpen, setSobreNosOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -38,6 +40,18 @@ export default function App() {
 
   const openTrabalheConosco = () => setTrabalheConoscoOpen(true);
   const closeTrabalheConosco = () => setTrabalheConoscoOpen(false);
+
+  const openSobreNos = () => setSobreNosOpen(true);
+  const closeSobreNos = () => setSobreNosOpen(false);
+
+  const handleExploreServicesFromSobreNos = () => {
+    setTimeout(() => {
+      const element = document.getElementById("cursos");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
+  };
 
   return (
     <>
@@ -59,7 +73,7 @@ export default function App() {
           className="w-full"
         >
           {/* Main sticky navigation header */}
-          <Header onOpenConsultation={openModal} onOpenTrabalheConosco={openTrabalheConosco} />
+          <Header onOpenConsultation={openModal} onOpenTrabalheConosco={openTrabalheConosco} onOpenSobreNos={openSobreNos} />
 
           {/* Page segments */}
           <main>
@@ -80,6 +94,7 @@ export default function App() {
           <AulasInfoModal isOpen={aulasModalOpen} onClose={closeAulasModal} onSchedule={openModal} />
           <EspacoKidsModal isOpen={kidsModalOpen} onClose={closeKidsModal} />
           <TrabalheConoscoModal isOpen={trabalheConoscoOpen} onClose={closeTrabalheConosco} />
+          <SobreNosModal isOpen={sobreNosOpen} onClose={closeSobreNos} onExploreServices={handleExploreServicesFromSobreNos} />
         </motion.div>
 
       </div>

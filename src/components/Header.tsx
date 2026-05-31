@@ -6,16 +6,17 @@ import GoogleDriveImage from "./GoogleDriveImage";
 interface HeaderProps {
   onOpenConsultation: () => void;
   onOpenTrabalheConosco?: () => void;
+  onOpenSobreNos?: () => void;
 }
 
-export default function Header({ onOpenConsultation, onOpenTrabalheConosco }: HeaderProps) {
+export default function Header({ onOpenConsultation, onOpenTrabalheConosco, onOpenSobreNos }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuItems = [
     { label: "Cursos", href: "#cursos" },
     { label: "Metodologia", href: "#metodologia" },
     { label: "Galeria", href: "#galeria" },
-    { label: "Sobre somos", href: "#depoimentos" },
+    { label: "Sobre Nós", onClick: onOpenSobreNos },
     { label: "Trabalhe Conosco", onClick: onOpenTrabalheConosco },
   ];
 
