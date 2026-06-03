@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Star, Shield, Users, Trophy } from "lucide-react";
 import GoogleDriveImage from "./GoogleDriveImage";
@@ -8,8 +7,6 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenConsultation }: HeroProps) {
-  // Graceful state handling for local image loading issues
-  const [imageLoaded, setImageLoaded] = useState(true);
 
   return (
     <section id="hero" className="relative min-h-[85vh] bg-primary-navy overflow-hidden flex items-center py-20 px-6">
@@ -130,52 +127,22 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
           {/* Main Visual Frame */}
           <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-800 shadow-2xl border border-white/10 flex items-center justify-center">
             
-            {/* Fallback pattern visible behind image or if image not found */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-800 flex flex-col justify-between p-8 text-left">
-
-              {/* Center content - Academic excellence emblem */}
-              <div className="my-auto py-6 space-y-4 flex flex-col items-center text-center">
-                <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl bg-slate-900/90 border border-success-gold/40 flex items-center justify-center shadow-2xl mb-2 relative p-1.5 overflow-hidden">
-                  <GoogleDriveImage
-                    driveId="1GgbacDCy4bFSI38YaqdqJNW3ayWuBXMh"
-                    alt="Capaci-Tati Premium"
-                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(112,163,102,0.25)] scale-105"
-                  />
-                  <div className="absolute inset-0 rounded-2xl border border-success-gold animate-[ping_2.5s_infinite] opacity-5" />
-                </div>
-                <h3 className="font-display font-extrabold text-xl text-white">Liderança e Seriedade</h3>
-                <p className="text-xs text-slate-400 max-w-sm">
-                  Espaço premium projetado para maximizar a disciplina, concentração e assimilação rápida de conteúdo.
-                </p>
-              </div>
-
-              {/* Bottom detail row */}
-              <div className="flex items-center justify-between border-t border-white/5 pt-4">
-                <div className="flex items-center gap-1.5 text-xs text-slate-300">
-                  <Users className="w-4 h-4 text-intellect-blue" />
-                  <span>São Sebastião do Paraíso, Minas Gerais</span>
-                </div>
-                <div className="text-xs text-success-gold font-mono font-medium tracking-wider">
-                  Marca Registrada
-                </div>
-              </div>
+            <GoogleDriveImage
+              driveId="1gjE2gcrtKsiW9h0Ml4UqjO6R18wJIvDz"
+              alt="Tatiane de Souza Urias Cassemiro - Fundadora CAPACITATI"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 hover:scale-[1.03]"
+            />
+            
+            {/* Overlay card with the founder's name and details on top of the loaded image */}
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-slate-950/90 border border-white/10 backdrop-blur-md space-y-1 z-20 shadow-xl text-left">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-success-gold font-bold">Fundadora e Diretora Pedagógica</p>
+              <h4 className="font-display font-black text-white text-base tracking-tight">Tatiane de Souza Urias Cassemiro</h4>
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest font-mono font-medium">CAPACITATI Ensino de Excelência</p>
             </div>
-
-            {/* Simulated actual local image (Graceful fallback fallback styling) */}
-            {imageLoaded && (
-              <img
-                src="assets/hero-escola.jpg"
-                alt="Reforço Escolar São Sebastião do Paraíso - Capaci-Tati Educação"
-                onError={() => setImageLoaded(false)}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 hover:scale-105"
-              />
-            )}
 
             {/* Overlays for depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
           </div>
-
-
 
         </div>
       </div>

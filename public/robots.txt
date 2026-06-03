@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.escolacapacitati.com.br/sitemap.xml

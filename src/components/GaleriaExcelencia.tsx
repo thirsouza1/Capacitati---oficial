@@ -54,8 +54,8 @@ export default function GaleriaExcelencia({ onOpenConsultation, onOpenEspacoKids
     },
     {
       id: 4,
-      driveId: "1Rq2C4pIMHciiojuO-gguU-L0I0bs9BdG",
-      src: "https://lh3.googleusercontent.com/d/1Rq2C4pIMHciiojuO-gguU-L0I0bs9BdG",
+      driveId: "18c3e-GvX6K0akLjhBcv1xbFFMYjKdKYD",
+      src: "https://lh3.googleusercontent.com/d/18c3e-GvX6K0akLjhBcv1xbFFMYjKdKYD",
       title: "Recepção Executiva",
       subtitle: "Espaço de acolhimento para pais e alunos",
       description: "Acolhimento humanizado planejado para receber os pais, discutir metas pedagógicas e monitorar a evolução dos alunos.",
@@ -64,8 +64,8 @@ export default function GaleriaExcelencia({ onOpenConsultation, onOpenEspacoKids
     },
     {
       id: 6,
-      driveId: "1DTRtCjh1ZJxC0ddQBfSZQ-tvqwFAa8qZ",
-      src: "https://lh3.googleusercontent.com/d/1DTRtCjh1ZJxC0ddQBfSZQ-tvqwFAa8qZ",
+      driveId: "15PUu9Avg9WmaykiJ5fbrCGd-q4UbAWDi",
+      src: "https://lh3.googleusercontent.com/d/15PUu9Avg9WmaykiJ5fbrCGd-q4UbAWDi",
       title: "Espaço Kid/Teens Criativo - Atividades Lúdicas",
       subtitle: "Jogos pedagógicos e estratégicos",
       description: "Uso de jogos e atividades lúdicas adaptadas ao conteúdo escolar para facilitar o processo de aprendizagem.",
@@ -84,8 +84,8 @@ export default function GaleriaExcelencia({ onOpenConsultation, onOpenEspacoKids
     },
     {
       id: 7,
-      driveId: "1qWgrNpQtgiu-Tz92paD5s6gPuyUYy0AF",
-      src: "https://lh3.googleusercontent.com/d/1qWgrNpQtgiu-Tz92paD5s6gPuyUYy0AF",
+      driveId: "1vcJRX0M1NnpSl8ufbMR1MPcdbxijAYn0",
+      src: "https://lh3.googleusercontent.com/d/1vcJRX0M1NnpSl8ufbMR1MPcdbxijAYn0",
       title: "Espaço Kid/Teens Criativo - Aprendizado Ativo",
       subtitle: "Jogos lúdicos e materiais de apoio",
       description: "Atividades interativas planejadas para prender a atenção e transformar conceitos complexos em conquistas divertidas.",
@@ -161,6 +161,7 @@ export default function GaleriaExcelencia({ onOpenConsultation, onOpenEspacoKids
               {/* High-quality local image tag */}
               {img.driveId ? (
                 <GoogleDriveImage
+                  key={img.driveId}
                   driveId={img.driveId}
                   alt={`${img.title} - Reforço Escolar São Sebastião do Paraíso - Capaci-Tati Educação`}
                   className={`absolute inset-0 w-full h-full ${img.id === 8 ? "object-cover object-top" : "object-cover"} mix-blend-overlay group-hover:scale-105 group-hover:opacity-20 transition-all duration-500`}
@@ -210,7 +211,7 @@ export default function GaleriaExcelencia({ onOpenConsultation, onOpenEspacoKids
               <div className="relative aspect-video w-full bg-slate-950 overflow-hidden group">
                 {selectedImage.driveId ? (
                    <GoogleDriveImage
-                     driveId={selectedImage.driveId}
+                     key={selectedImage.driveId} driveId={selectedImage.driveId}
                      alt={selectedImage.title}
                      className={`w-full h-full ${selectedImage.id === 8 ? "object-cover object-top" : "object-cover"}`}
                    />

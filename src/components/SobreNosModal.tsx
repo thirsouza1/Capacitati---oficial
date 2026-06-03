@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Check, Eye, Heart, Target, Sparkles, Compass, Award, Calendar, ChevronRight, ArrowRight, BookOpen, Quote, ShieldCheck } from "lucide-react";
 import GoogleDriveImage from "./GoogleDriveImage";
+import tatianePhoto from "../assets/images/tatiane_original.png";
 
 interface SobreNosModalProps {
   isOpen: boolean;
@@ -144,11 +145,11 @@ export default function SobreNosModal({ isOpen, onClose, onExploreServices }: So
                     transition={{ delay: 0.35 }}
                     className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group"
                   >
-                    <GoogleDriveImage
-                      driveId="1gVNo6G9mN4YpQ43mZ78H6UvXitG2v1c5" // Logo alternate/team representative image or logo symbol
-                      alt="Capaci-Tati Educação"
+                    <img
+                      src={tatianePhoto}
+                      alt="Tatiane de Souza Urias Cassemiro - Fundadora CAPACITATI"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      // Fallback internally supported by GoogleDriveImage
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                     

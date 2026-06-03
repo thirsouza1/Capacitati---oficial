@@ -154,7 +154,7 @@ export default function EspacoKidsModal({ isOpen, onClose }: EspacoKidsModalProp
                     className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/5]"
                   >
                     <GoogleDriveImage
-                      driveId="1DTRtCjh1ZJxC0ddQBfSZQ-tvqwFAa8qZ"
+                      driveId="1vcJRX0M1NnpSl8ufbMR1MPcdbxijAYn0"
                       alt="Espaço Kids Brinquedos Pedagógicos"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -171,7 +171,7 @@ export default function EspacoKidsModal({ isOpen, onClose }: EspacoKidsModalProp
                     className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/5] mt-6"
                   >
                     <GoogleDriveImage
-                      driveId="1qWgrNpQtgiu-Tz92paD5s6gPuyUYy0AF"
+                      driveId="15PUu9Avg9WmaykiJ5fbrCGd-q4UbAWDi"
                       alt="Espaço Kids Envolvimento Pedagógico"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
