@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Check } from "lucide-react";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface LeadModalProps {
 }
 
 export default function LeadModal({ isOpen, onClose }: LeadModalProps) {
+  useBodyScrollLock(isOpen);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
@@ -93,7 +95,7 @@ export default function LeadModal({ isOpen, onClose }: LeadModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-10"
+            className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-y-auto max-h-[90vh] overscroll-contain z-10"
           >
             
             {/* Elegant upper stripe header */}

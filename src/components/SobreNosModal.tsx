@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, Check, Eye, Heart, Target, Sparkles, Compass, Award, Calendar, ChevronRight, ArrowRight, BookOpen, Quote, ShieldCheck } from "lucide-react";
 import GoogleDriveImage from "./GoogleDriveImage";
 import tatianePhoto from "../assets/images/tatiane_original.png";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 
 interface SobreNosModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface SobreNosModalProps {
 }
 
 export default function SobreNosModal({ isOpen, onClose, onExploreServices }: SobreNosModalProps) {
+  useBodyScrollLock(isOpen);
   const timelineData = [
     {
       year: "2015",
@@ -50,7 +52,7 @@ export default function SobreNosModal({ isOpen, onClose, onExploreServices }: So
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar"
+          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar overscroll-contain"
         >
           {/* Main Fullscreen Container */}
           <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-b from-[#0F172A] via-[#090D1A] to-[#01040E] text-white">

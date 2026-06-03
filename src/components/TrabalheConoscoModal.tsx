@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Check, Briefcase, FileText, Mail, Send, Award, Users, GraduationCap, Heart, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 
 interface TrabalheConoscoModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface TrabalheConoscoModalProps {
 }
 
 export default function TrabalheConoscoModal({ isOpen, onClose }: TrabalheConoscoModalProps) {
+  useBodyScrollLock(isOpen);
   const whatsappUrl = "https://wa.me/5535988330353?text=Olá!%20Gostaria%20de%20cadastrar%20meu%20currículo%20no%20banco%20de%20talentos%20da%20CAPACITATI.";
   const mailToUrl = "mailto:tsurias2@gmail.com?subject=Currículo%20-%20Banco%20de%20Talentos%20CAPACITATI&body=Olá!%20Gostaria%20de%20cadastrar%20meu%20currículo%20no%20banco%2520de%20talentos%20da%20CAPACITATI.";
 
@@ -35,7 +37,7 @@ export default function TrabalheConoscoModal({ isOpen, onClose }: TrabalheConosc
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar"
+          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar overscroll-contain"
         >
           {/* Main Fullscreen Content Wrapper */}
           <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-b from-[#0F172A] via-[#090D1A] to-[#020617] text-white">

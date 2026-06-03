@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Calendar, BookOpen, Brain, Clock, ShieldCheck, ArrowRight } from "lucide-react";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 
 interface AulasInfoModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface AulasInfoModalProps {
 }
 
 export default function AulasInfoModal({ isOpen, onClose, onSchedule }: AulasInfoModalProps) {
+  useBodyScrollLock(isOpen);
   const modalInfo = [
     {
       title: "Reforço Escolar",
@@ -93,7 +95,7 @@ export default function AulasInfoModal({ isOpen, onClose, onSchedule }: AulasInf
             </div>
 
             {/* Modal Body / Information Grid */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-6 md:space-y-8 z-10 custom-scrollbar">
+            <div className="p-6 sm:p-8 overflow-y-auto overscroll-contain space-y-6 md:space-y-8 z-10 custom-scrollbar">
               
               <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
                 Oferecemos soluções sob medida de acordo com as necessidades específicas do estudante. 

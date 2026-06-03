@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Check, Heart, Trophy, BookOpen, MessageCircle, Sparkles, Smile, Compass, Star } from "lucide-react";
 import GoogleDriveImage from "./GoogleDriveImage";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 
 interface EspacoKidsModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface EspacoKidsModalProps {
 }
 
 export default function EspacoKidsModal({ isOpen, onClose }: EspacoKidsModalProps) {
+  useBodyScrollLock(isOpen);
   // WhatsApp redirect link for Espaço Kids
   const whatsappUrl = "https://wa.me/5535988330353?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Espaço%20Kids%20da%20CAPACITATI.";
 
@@ -61,7 +63,7 @@ export default function EspacoKidsModal({ isOpen, onClose }: EspacoKidsModalProp
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar"
+          className="fixed inset-0 z-50 bg-slate-950 overflow-y-auto block custom-scrollbar overscroll-contain"
         >
           {/* Main Fullscreen Content Wrapper */}
           <div className="relative min-h-screen flex flex-col justify-between bg-gradient-to-b from-[#0F172A] via-[#090D1A] to-[#020617] text-white">
